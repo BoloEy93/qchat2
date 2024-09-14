@@ -12,39 +12,39 @@ col1, col2, col3 = st.columns(3)
 
 # Q-CHAT-10 Questions
 
-q1 = col1.selectbox("1. Est-ce que votre enfant vous regarde lorsque vous l’appelez par son prénom?",
+Q1 = col1.selectbox("1. Est-ce que votre enfant vous regarde lorsque vous l’appelez par son prénom?",
                     ["Toujours", "Habituellement", "Parfois", "Rarement", "Jamais"])
 
-q2 = col2.selectbox("2. Est-ce que c'est facile d’établir un contact visuel avec votre enfant?",
+Q2 = col2.selectbox("2. Est-ce que c'est facile d’établir un contact visuel avec votre enfant?",
                     ["Très facile", "Assez facile", "Parfois difficile", "Très difficile", "Impossible"])
 
-q3 = col3.selectbox("3. Est-ce que votre enfant pointe du doigt pour demander quelque chose ou parce qu’il en a besoin?",
+Q3 = col3.selectbox("3. Est-ce que votre enfant pointe du doigt pour demander quelque chose ou parce qu’il en a besoin?",
                     ["Oui, souvent", "Oui, parfois", "Rarement", "Jamais"])
 
-q4 = col1.selectbox("4. Est-ce que votre enfant joue à faire semblant, comme par exemple faire semblant de parler au téléphone ou faire semblant de nourrir une poupée?",
+Q4 = col1.selectbox("4. Est-ce que votre enfant joue à faire semblant, comme par exemple faire semblant de parler au téléphone ou faire semblant de nourrir une poupée?",
                     ["Oui, souvent", "Oui, parfois", "Rarement", "Jamais"])
 
-q5 = col2.selectbox("5. Est-ce que votre enfant regarde dans la même direction que vous lorsque vous regardez quelque chose?",
+Q5 = col2.selectbox("5. Est-ce que votre enfant regarde dans la même direction que vous lorsque vous regardez quelque chose?",
                     ["Oui, souvent", "Oui, parfois", "Rarement", "Jamais"])
 
-q6 = col3.selectbox("6. Si vous êtes bouleversé ou triste, est-ce que votre enfant montre des signes de vouloir vous réconforter?",
+Q6 = col3.selectbox("6. Si vous êtes bouleversé ou triste, est-ce que votre enfant montre des signes de vouloir vous réconforter?",
                     ["Oui, souvent", "Oui, parfois", "Rarement", "Jamais"])
 
-q7 = col1.selectbox("7. Est-ce que votre enfant utilise spontanément des gestes simples de communication, comme saluer de la main ou montrer du doigt?",
+Q7 = col1.selectbox("7. Est-ce que votre enfant utilise spontanément des gestes simples de communication, comme saluer de la main ou montrer du doigt?",
                     ["Oui, souvent", "Oui, parfois", "Rarement", "Jamais"])
 
-q8 = col2.selectbox("8. Est-ce que les premiers mots de votre enfant étaient clairs et utilisés de façon appropriée?",
+Q8 = col2.selectbox("8. Est-ce que les premiers mots de votre enfant étaient clairs et utilisés de façon appropriée?",
                     ["Oui, très clair", "Plutôt clair", "Légèrement inhabituel", "Très inhabituel", "Mon enfant ne parle pas"])
 
-q9 = col3.selectbox("9. Est-ce que votre enfant vous montre des objets juste pour partager son intérêt, pas parce qu'il en a besoin?",
+Q9 = col3.selectbox("9. Est-ce que votre enfant vous montre des objets juste pour partager son intérêt, pas parce qu'il en a besoin?",
                     ["Oui, souvent", "Oui, parfois", "Rarement", "Jamais"])
 
-q10 = col1.selectbox("10. Est-ce que votre enfant montre une réaction inhabituelle à des bruits forts ou des objets en mouvement?",
+Q10 = col1.selectbox("10. Est-ce que votre enfant montre une réaction inhabituelle à des bruits forts ou des objets en mouvement?",
                      ["Oui, souvent", "Oui, parfois", "Rarement", "Jamais"])
 
 # Create a DataFrame to hold the answers
-df_pred = pd.DataFrame([[gender, q1, q2, q3, q4, q5, q6, q7, q8, q9, q10]],
-                       columns=['gender', 'q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7', 'q8', 'q9', 'q10'])
+df_pred = pd.DataFrame([[gender, Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10]],
+                       columns=['gender', 'Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8', 'Q9', 'Q10'])
 
 # Transforming categorical inputs into numerical values
 def transform_response(response):
@@ -57,16 +57,16 @@ def transform_response(response):
     return mapping.get(response, 3)
 
 # Apply transformations
-df_pred['q1'] = df_pred['q1'].apply(transform_response)
-df_pred['q2'] = df_pred['q2'].apply(transform_response)
-df_pred['q3'] = df_pred['q3'].apply(transform_response)
-df_pred['q4'] = df_pred['q4'].apply(transform_response)
-df_pred['q5'] = df_pred['q5'].apply(transform_response)
-df_pred['q6'] = df_pred['q6'].apply(transform_response)
-df_pred['q7'] = df_pred['q7'].apply(transform_response)
-df_pred['q8'] = df_pred['q8'].apply(transform_response)
-df_pred['q9'] = df_pred['q9'].apply(transform_response)
-df_pred['q10'] = df_pred['q10'].apply(transform_response)
+df_pred['Q1'] = df_pred['Q1'].apply(transform_response)
+df_pred['Q2'] = df_pred['Q2'].apply(transform_response)
+df_pred['Q3'] = df_pred['Q3'].apply(transform_response)
+df_pred['Q4'] = df_pred['Q4'].apply(transform_response)
+df_pred['Q5'] = df_pred['Q5'].apply(transform_response)
+df_pred['Q6'] = df_pred['Q6'].apply(transform_response)
+df_pred['Q7'] = df_pred['Q7'].apply(transform_response)
+df_pred['Q8'] = df_pred['Q8'].apply(transform_response)
+df_pred['Q9'] = df_pred['Q9'].apply(transform_response)
+df_pred['Q10'] = df_pred['Q10'].apply(transform_response)
 
 # Gender transformation
 df_pred['gender'] = df_pred['gender'].apply(lambda x: 1 if x == 'Garçon' else 0)
