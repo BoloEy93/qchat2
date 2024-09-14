@@ -69,7 +69,7 @@ df_pred['Q9'] = df_pred['Q9'].apply(transform_response)
 df_pred['Q10'] = df_pred['Q10'].apply(transform_response)
 
 # Gender transformation
-df_pred['gender'] = df_pred['gender'].apply(lambda x: 1 if x == 'Garçon' else 0)
+#df_pred['gender'] = df_pred['gender'].apply(lambda x: 1 if x == 'Garçon' else 0)
 
 #st.write("Réponses converties :")
 #st.write(df_pred)
