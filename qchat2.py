@@ -43,8 +43,8 @@ Q10 = col1.selectbox("10. Est-ce que votre enfant montre une réaction inhabitue
                      ["Oui, souvent", "Oui, parfois", "Rarement", "Jamais"])
 
 # Create a DataFrame to hold the answers
-df_pred = pd.DataFrame([[gender, Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10]],
-                       columns=['gender', 'Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8', 'Q9', 'Q10'])
+df_pred = pd.DataFrame([[Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10]],
+                       columns=['Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8', 'Q9', 'Q10'])
 
 # Transforming categorical inputs into numerical values
 def transform_response(response):
